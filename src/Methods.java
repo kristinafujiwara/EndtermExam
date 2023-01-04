@@ -1,10 +1,12 @@
-import java.math.BigDecimal;
-
 class Methods extends Result {
-    public static int computeValue(String value1, String value2) {
-        double a = .45;
+    public static int computeRetail(String value1) {
         int num1 = Integer.parseInt(value1);
-        double answer = num1 * a;
-        return num1;
+        int retail = (num1 / (100 - 45)) * 100;
+        return retail;
+    }
+    public static int computeWholesale(String retailprice) {
+        int retail = Integer.parseInt(retailprice);
+        int wholesale = (int) (retail * (60.0f/100.0f));
+        return wholesale;
     }
 }
