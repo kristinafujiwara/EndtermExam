@@ -9,7 +9,7 @@ public class Computation extends Methods {
     JFrame frame = new JFrame();
     JLabel label = new JLabel("Wholesale & Retail Price");
 
-    Computation(){
+    Computation() {
         JFrame frame = new JFrame("Wholesale & Retail Price");
         JPanel panelTitle = new JPanel(new FlowLayout());
         JPanel panelOne = new JPanel(new GridLayout(2, 2, 1, 1));
@@ -30,7 +30,7 @@ public class Computation extends Methods {
         tFieldTwo = new JTextField(20);
         tFieldTwo.setPreferredSize(new Dimension(80, 10));
 
-        labelOne = new JLabel("Enter Retail Price (₱): ");
+        labelOne = new JLabel("Enter Original Price (₱): ");
         //labelTwo = new JLabel("Enter Markup Percentage (%): ");
 
         labelOne.setBounds(10, 10, 90, 10);
@@ -48,8 +48,9 @@ public class Computation extends Methods {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int result = computeValue(tFieldOne.getText(), tFieldTwo.getText());
-                displayMessage(String.valueOf(result));
+                int result = computeRetail(tFieldOne.getText());
+                int answer = computeWholesale(tFieldOne.getText());
+                displayMessage(String.valueOf(result), String.valueOf(answer));
             }
         });
 
@@ -66,11 +67,5 @@ public class Computation extends Methods {
         // center the jframe on screen
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    }
-
-    abstract class Methods {
-        public void displayMessage() {
-            System.out.println("Answer");
-        }
     }
 }
